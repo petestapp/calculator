@@ -1,19 +1,31 @@
 console.log(`javascripting`);
 
 let firstNumber;
+let firstNumberPicked = false;
 let secondNumber;
 let operator;
 
 function clickButton() {
-    console.log(button.value + ` clicked`);
+    console.log(`firstNumberPicked: ` + firstNumberPicked);
 }
 
-function stageFirstNumber(el) {
-    console.log(`button pressed: ` + el);
-    firstNumber = el;
-    console.log(`firstNumber: ` + firstNumber);
+function stageNumbers(el) {
+    if (firstNumberPicked == false) {
+        console.log(`button pressed: ` + el);
+        firstNumber = el;
+        console.log(`firstNumber: ` + firstNumber);
+        firstNumberPicked = true;
+    } else {
+        secondNumber = el;
+        console.log(`secondNumber: ` + secondNumber);
+    }
 }
 
 function stageOperator(el) {
-    console.log(`operator pressed: ` + el);
+    if (firstNumberPicked == false) {
+        console.log(`pick a number first`);
+    } else {
+        operator = el;
+        console.log(`operator: ` + operator);
+    }
 }
