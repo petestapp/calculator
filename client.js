@@ -2,6 +2,7 @@ console.log(`javascripting`);
 
 let firstNumber;
 let secondNumber;
+let operator;
 
 function clickButton() {
     console.log(button.value + ` clicked`);
