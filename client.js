@@ -1,13 +1,26 @@
 console.log(`javascripting`);
 
-let firstNumber;
+let firstNumber = undefined;
 let firstNumberPicked = false;
 let secondNumber;
 let operator;
+let operatorPicked = false
 let answer;
 
 function clickButton() {
+    console.log(`firstNumber:` + firstNumber);
     console.log(`firstNumberPicked: ` + firstNumberPicked);
+    console.log(`operator: ` + operator);
+    console.log(`operatorPicked: ` + operatorPicked);
+    console.log(`secondNumber: ` + secondNumber);
+}
+
+function clearData() {
+    firstNumber = undefined;
+    firstNumberPicked = false;
+    operator = false;
+    operatorPicked = false;
+    secondNumber = false;
 }
 
 function stageNumbers(el) {
@@ -16,6 +29,11 @@ function stageNumbers(el) {
         firstNumber = Number(el);
         console.log(`firstNumber: ` + firstNumber);
         firstNumberPicked = true;
+    }
+    else if (operatorPicked == false) {
+        console.log(`operator has not been picked`);
+        firstNumber = Number(el);
+        console.log(`firstNumber: ` + firstNumber);
     }
     else {
         secondNumber = Number(el);
@@ -29,6 +47,7 @@ function stageOperator(el) {
     }
     else {
         operator = el;
+        operatorPicked = true;
         console.log(`operator: ` + operator);
     }
 }
