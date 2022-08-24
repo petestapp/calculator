@@ -1,10 +1,16 @@
+$(document).ready(onReady);
+
+function onReady() {
+    console.log(`JQ`)
+}
+
 console.log(`javascripting`);
 
-let firstNumber = undefined;
+let firstNumber;
 let firstNumberPicked = false;
 let secondNumber;
 let operator;
-let operatorPicked = false
+let operatorPicked = false;
 let answer;
 
 function clickButton() {
@@ -26,18 +32,24 @@ function clearData() {
 function stageNumbers(el) {
     if (firstNumberPicked == false) {
         console.log(`button pressed: ` + el);
+        // let num = firstNumber.push(el);
         firstNumber = Number(el);
-        console.log(`firstNumber: ` + firstNumber);
         firstNumberPicked = true;
+        // console.log(`num: ` + num);
+        // firstNumber.push(el);
+        console.log(`firstNumber: ` + firstNumber);
+        $(`#screen`).empty().append(firstNumber);
     }
     else if (operatorPicked == false) {
         console.log(`operator has not been picked`);
         firstNumber = Number(el);
         console.log(`firstNumber: ` + firstNumber);
+        $(`#screen`).empty().append(firstNumber);
     }
     else {
         secondNumber = Number(el);
         console.log(`secondNumber: ` + secondNumber);
+        $(`#screen`).append(secondNumber);
     }
 }
 
@@ -49,6 +61,7 @@ function stageOperator(el) {
         operator = el;
         operatorPicked = true;
         console.log(`operator: ` + operator);
+        $(`#screen`).append(operator);
     }
 }
 
@@ -59,17 +72,21 @@ function completeOperation() {
     else if (operator == "divide") {
         answer = firstNumber / secondNumber;
         console.log(`answer: ` + answer);
+        $(`#screen`).empty().append(answer);
     }
     else if (operator == "multiply") {
         answer = firstNumber * secondNumber;
         console.log(`answer: ` + answer);
+        $(`#screen`).empty().append(answer);
     }
     else if (operator == "subtract") {
         answer = firstNumber - secondNumber;
         console.log(`answer: ` + answer);
+        $(`#screen`).empty().append(answer);
     }
     else {
         answer = firstNumber + secondNumber;
         console.log(`answer: ` + answer);
+        $(`#screen`).empty().append(answer);
     }
 }
