@@ -29,7 +29,17 @@ function clearData() {
     secondNumber = false;
 }
 
+
+let multipleDigits = [];
+
+function multipleDigitTest(el) {
+    let num = multipleDigits.push(el);
+    console.log(`multipleDigits: ` + multipleDigits.join(''));
+    $(`#multipleDigits`).empty().append(Number(multipleDigits.join('')));
+}
+
 function stageNumbers(el) {
+    multipleDigitTest(el);
     if (firstNumberPicked == false) {
         console.log(`button pressed: ` + el);
         // let num = firstNumber.push(el);

@@ -6,45 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="vendors/jquery-3.6.0.min copy.js"></script>
     <script src="client.js"></script>
     <title>Calculator</title>
 </head>
 
 <body>
-    <h1>Calculator</h1>
-    <button onclick="clickButton()">Show Data</button>
+    <div class="container-sm text-center">
+        <h1>Calculator</h1>
+        <button onclick="clickButton()">Show Data</button>
 
-    <div id="screen">000000000</div>
+        <div class="container-sm">
 
-    <div>
-        <button onclick="clearData()">c</button>
-        <button>+/-</button>
-        <button>%</button>
-        <button value="divide" onclick="stageOperator(value)">/</button>
-    </div>
-    <div>
-        <button value=7 onclick="stageNumbers(value)">7</button>
-        <button value=8 onclick="stageNumbers(value)">8</button>
-        <button value=9 onclick="stageNumbers(value)">9</button>
-        <button value="multiply" onclick="stageOperator(value)">x</button>
-    </div>
-    <div>
-        <button value=4 onclick="stageNumbers(value)">4</button>
-        <button value=5 onclick="stageNumbers(value)">5</button>
-        <button value=6 onclick="stageNumbers(value)">6</button>
-        <button value="subtract" onclick="stageOperator(value)">-</button>
-    </div>
-    <div>
-        <button value=1 onclick="stageNumbers(value)">1</button>
-        <button value=2 onclick="stageNumbers(value)">2</button>
-        <button value=3 onclick="stageNumbers(value)">3</button>
-        <button value="add" onclick="stageOperator(value)">+</button>
-    </div>
-    <div>
-        <button value=0 onclick="stageNumbers(value)">0</button>
-        <button value=".">.</button>
-        <button value="equals" onclick="completeOperation()">=</button>
+            <div class="h2" id="multipleDigits"></div>
+
+            <div class="h2" id="screen">000000000</div>
+
+            <div class="row">
+                <button type="button" class="btn btn-outline-info col-3" onclick="clearData()">c</button>
+                <button type="button" class="btn btn-outline-info col-3">+/-</button>
+                <button type="button" class="btn btn-outline-info col-3">%</button>
+                <button type="button" class="btn btn-outline-dark col-3" value="divide"
+                    onclick="stageOperator(value)">/</button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-outline-info col-3" value=7
+                    onclick="stageNumbers(value)">7</button>
+                <button type="button" class="btn btn-outline-info col-3" value=8
+                    onclick="stageNumbers(value)">8</button>
+                <button type="button" class="btn btn-outline-info col-3" value=9
+                    onclick="stageNumbers(value)">9</button>
+                <button type="button" class="btn btn-outline-dark col-3" value="multiply"
+                    onclick="stageOperator(value)">x</button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-outline-info col-3" value=4
+                    onclick="stageNumbers(value)">4</button>
+                <button type="button" class="btn btn-outline-info col-3" value=5
+                    onclick="stageNumbers(value)">5</button>
+                <button type="button" class="btn btn-outline-info col-3" value=6
+                    onclick="stageNumbers(value)">6</button>
+                <button type="button" class="btn btn-outline-dark col-3" value="subtract"
+                    onclick="stageOperator(value)">-</button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-outline-info col-3" value=1
+                    onclick="stageNumbers(value)">1</button>
+                <button type="button" class="btn btn-outline-info col-3" value=2
+                    onclick="stageNumbers(value)">2</button>
+                <button type="button" class="btn btn-outline-info col-3" value=3
+                    onclick="stageNumbers(value)">3</button>
+                <button type="button" class="btn btn-outline-dark col-3" value="add"
+                    onclick="stageOperator(value)">+</button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-outline-info col-6" value=0
+                    onclick="stageNumbers(value)">0</button>
+                <button type="button" class="btn btn-outline-info col-3" value=".">.</button>
+                <button type="button" class="btn btn-outline-dark col-3" value="equals"
+                    onclick="completeOperation()">=</button>
+            </div>
+        </div>
     </div>
 </body>
 
