@@ -4,14 +4,13 @@ function onReady() {
     console.log(`JQ`)
 }
 
-console.log(`javascripting`);
-
 let firstNumber;
 let firstNumberPicked = false;
 let secondNumber;
 let operator;
 let operatorPicked = false;
 let answer;
+let firstDecimalPointPresent = false;
 
 function clickButton() {
     console.log(`firstNumber:` + firstNumber);
@@ -29,13 +28,19 @@ function clearData() {
     secondNumber = false;
 }
 
-
 let multipleDigits = [];
 
 function multipleDigitTest(el) {
     let num = multipleDigits.push(el);
     console.log(`multipleDigits: ` + multipleDigits.join(''));
     $(`#multipleDigits`).empty().append(Number(multipleDigits.join('')));
+    if (firstDecimalPointPresent == false) {
+        console.log(`multipleDigits: ` + multipleDigits);
+        $(`#multipleDigits`).empty().append(Number(multipleDigits.join('')));
+    }
+    else {
+        console.log(`can't do that`)
+    }
 }
 
 function stageNumbers(el) {
