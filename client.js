@@ -4,6 +4,7 @@ function onReady() {
     console.log(`JQ`)
 }
 
+let firstNumberArray = [];
 let firstNumber;
 let firstNumberPicked = false;
 let secondNumber;
@@ -44,16 +45,33 @@ function multipleDigitTest(el) {
 }
 
 function stageNumbers(el) {
-    multipleDigitTest(el);
+    // multipleDigitTest(el);
     if (firstNumberPicked == false) {
-        console.log(`button pressed: ` + el);
-        // let num = firstNumber.push(el);
-        firstNumber = Number(el);
-        firstNumberPicked = true;
-        // console.log(`num: ` + num);
-        // firstNumber.push(el);
-        console.log(`firstNumber: ` + firstNumber);
-        $(`#screen`).empty().append(firstNumber);
+        // // firstNumber = Number(el);
+        // console.log(`firstNumber: ` + firstNumber);
+        if (firstDecimalPointPresent == false) {
+            if (el == `.` && firstNumberArray.length == 0) {
+                console.log(`select a digit first`);
+            }
+            else if (el == `.`) {
+                firstDecimalPointPresent = true;
+                firstNumberArray.push(el);
+                console.log('firstDecimalPointPresent: ', firstDecimalPointPresent);
+            }
+            else {
+                firstNumberArray.push(el);
+            }
+        }
+        else {
+            if (el == `.`) {
+                console.log(`can't have more than one decimal point`);
+            }
+            else {
+                firstNumberArray.push(el);
+            }
+        }
+        $(`#screen`).empty().append(firstNumberArray);
+        console.log(firstNumberArray);
     }
     else if (operatorPicked == false) {
         console.log(`operator has not been picked`);
@@ -69,12 +87,14 @@ function stageNumbers(el) {
 }
 
 function stageOperator(el) {
-    if (firstNumberPicked == false) {
+    if (firstNumberArray.length == 0) {
         console.log(`pick a number first`);
     }
     else {
+        firstNumber = Number(firstNumberArray.join(''));
         operator = el;
         operatorPicked = true;
+        firstNumberPicked = true;
         console.log(`operator: ` + operator);
         $(`#screen`).append(operator);
     }
