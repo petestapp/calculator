@@ -14,21 +14,19 @@
 </head>
 
 <body>
-    <div class="container-sm text-center bg-secondary">
-        <h1>Calculator</h1>
+    <div class="text-center">
+        <h1 class="">Calculator</h1>
         <button onclick="clickButton()">Show Data</button>
 
-        <div class="container-sm position-relative">
-
-            <div class="h2" id="multipleDigits"></div>
+        <div style="width: 400px; height: 600px" class="mx-auto bg-secondary rounded">
 
             <div class="h2" id="screen">000000000</div>
 
-            <div class="row p-2 text-center">
-                <button type="button" class="btn btn-outline-info col-1 m-1" onclick="clearData()">c</button>
-                <button type="button" class="btn btn-outline-info col-1 m-1">+/-</button>
-                <button type="button" class="btn btn-outline-info col-1 m-1">%</button>
-                <button type="button" class="btn btn-outline-dark col-1 m-1" value="divide"
+            <div class="row p-1 text-center">
+                <button type="button" class="btn btn-outline-info col-3" onclick="clearData()">c</button>
+                <button type="button" class="btn btn-outline-info col-3">+/-</button>
+                <button type="button" class="btn btn-outline-info col-3">%</button>
+                <button type="button" class="btn btn-outline-dark col-3" value="divide"
                     onclick="stageOperator(value)">/</button>
             </div>
             <div class="row p-2">
