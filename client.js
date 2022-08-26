@@ -7,11 +7,14 @@ function onReady() {
 let firstNumberArray = [];
 let firstNumber;
 let firstNumberPicked = false;
+let secondNumberArray = [];
+let secondNumberPicked = false;
 let secondNumber;
 let operator;
 let operatorPicked = false;
 let answer;
 let firstDecimalPointPresent = false;
+let secondDecimalPointPresent = false;
 
 function clickButton() {
     console.log(`firstNumber:` + firstNumber);
@@ -45,10 +48,7 @@ function multipleDigitTest(el) {
 }
 
 function stageNumbers(el) {
-    // multipleDigitTest(el);
     if (firstNumberPicked == false) {
-        // // firstNumber = Number(el);
-        // console.log(`firstNumber: ` + firstNumber);
         if (firstDecimalPointPresent == false) {
             if (el == `.` && firstNumberArray.length == 0) {
                 console.log(`select a digit first`);
@@ -56,7 +56,6 @@ function stageNumbers(el) {
             else if (el == `.`) {
                 firstDecimalPointPresent = true;
                 firstNumberArray.push(el);
-                console.log('firstDecimalPointPresent: ', firstDecimalPointPresent);
             }
             else {
                 firstNumberArray.push(el);
@@ -73,16 +72,40 @@ function stageNumbers(el) {
         $(`#screen`).empty().append(firstNumberArray);
         console.log(firstNumberArray);
     }
-    else if (operatorPicked == false) {
-        console.log(`operator has not been picked`);
-        firstNumber = Number(el);
-        console.log(`firstNumber: ` + firstNumber);
-        $(`#screen`).empty().append(firstNumber);
-    }
+    // else if (operatorPicked == false) {
+    //     console.log(`operator has not been picked`);
+    //     firstNumber = Number(el);
+    //     console.log(`firstNumber: ` + firstNumber);
+    //     $(`#screen`).empty().append(firstNumber);
+    // }
     else {
-        secondNumber = Number(el);
-        console.log(`secondNumber: ` + secondNumber);
-        $(`#screen`).append(secondNumber);
+        // if (firstNumberPicked == false) {
+        if (secondDecimalPointPresent == false) {
+            if (el == `.` && secondNumberArray.length == 0) {
+                console.log(`select a digit first`);
+            }
+            else if (el == `.`) {
+                secondDecimalPointPresent = true;
+                secondNumberArray.push(el);
+            }
+            else {
+                secondNumberArray.push(el);
+            }
+        }
+        else {
+            if (el == `.`) {
+                console.log(`can't have more than one decimal point`);
+            }
+            else {
+                secondNumberArray.push(el);
+            }
+        }
+        $(`#screen`).empty().append(secondNumberArray);
+        console.log(secondNumberArray);
+        // }
+        // secondNumber = Number(el);
+        // console.log(`secondNumber: ` + secondNumber);
+        // $(`#screen`).append(secondNumber);
     }
 }
 
@@ -101,6 +124,8 @@ function stageOperator(el) {
 }
 
 function completeOperation() {
+    secondNumber = Number(secondNumberArray.join(''));
+    console.log(`secondNumber: `, secondNumber);
     if (firstNumberPicked == 0 || operator == null || secondNumber == null) {
         console.log('error: add more info');
     }
