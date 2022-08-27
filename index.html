@@ -26,27 +26,29 @@
                 <button type="button" class="col btn btn-danger" onclick="clearData()">c</button>
                 <button type="button" class="col btn btn-light">+/-</button>
                 <button type="button" class="col btn btn-light">%</button>
-                <button type="button" class="col btn btn-dark" value="divide" onclick="stageOperator(value)">/</button>
+                <button type="button" class="col btn btn-dark" value="divide" id="divide"
+                    onclick="stageOperator(value)">/</button>
             </div>
             <div class="row g-2 gap-2 m-2">
                 <button type="button" class="col btn btn-light" value=7 onclick="stageNumbers(value)">7</button>
                 <button type="button" class="col btn btn-light" value=8 onclick="stageNumbers(value)">8</button>
                 <button type="button" class="col btn btn-light" value=9 onclick="stageNumbers(value)">9</button>
-                <button type="button" class="col btn btn-dark" value="multiply"
+                <button type="button" class="col btn btn-dark" value="multiply" id="multiply"
                     onclick="stageOperator(value)">x</button>
             </div>
             <div class="row g-2 gap-2 m-2">
                 <button type="button" class="col btn btn-light" value=4 onclick="stageNumbers(value)">4</button>
                 <button type="button" class="col btn btn-light" value=5 onclick="stageNumbers(value)">5</button>
                 <button type="button" class="col btn btn-light" value=6 onclick="stageNumbers(value)">6</button>
-                <button type="button" class="col btn btn-dark" value="subtract"
+                <button type="button" class="col btn btn-dark" value="subtract" id="subtract"
                     onclick="stageOperator(value)">-</button>
             </div>
             <div class="row g-2 gap-2 m-2">
                 <button type="button" class="col btn btn-light" value=1 onclick="stageNumbers(value)">1</button>
                 <button type="button" class="col btn btn-light" value=2 onclick="stageNumbers(value)">2</button>
                 <button type="button" class="col btn btn-light" value=3 onclick="stageNumbers(value)">3</button>
-                <button type="button" class="col btn btn-dark" value="add" onclick="stageOperator(value)">+</button>
+                <button type="button" class="col btn btn-dark" value="add" id="add"
+                    onclick="stageOperator(value)">+</button>
             </div>
             <div class="row g-2 gap-2 m-2">
                 <button type="button" class="col-3 btn btn-light" value=0 onclick="stageNumbers(value)">0</button>

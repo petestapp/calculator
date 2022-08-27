@@ -116,10 +116,11 @@ function stageOperator(el) {
         // if the first number has been selected this transforms it from an array to a number and saves it as firstNumber and sets the operator
         firstNumber = Number(firstNumberArray.join(''));
         operator = el;
+        let buttonChangeData = `'#` + operator + `'`;
         operatorPicked = true;
         firstNumberPicked = true;
         console.log(`operator: ` + operator);
-        $(`#screen`).append(operator);
+        $(`#${operator}`).removeClass('btn-dark').addClass('btn-danger');
     }
 }
 
@@ -127,6 +128,7 @@ function completeOperation() {
     secondNumber = Number(secondNumberArray.join(''));
     // once the equals sign is pressed this saves the secondNumber as a number rather than an array and the below lines complete the operation depending on the operator
     console.log(`secondNumber: `, secondNumber);
+    $(`#${operator}`).removeClass('btn-danger').addClass('btn-dark');
     if (firstNumberPicked == 0 || operator == null || secondNumber == null) {
         console.log('error: add more info');
     }
