@@ -25,27 +25,18 @@ function clickButton() {
 }
 
 function clearData() {
+    firstNumberArray = [];
     firstNumber = undefined;
     firstNumberPicked = false;
-    operator = false;
+    secondNumberArray = [];
+    secondNumber = undefined;
+    operator = undefined;
     operatorPicked = false;
-    secondNumber = false;
+    answer = undefined;
+    firstDecimalPointPresent = false;
+    secondDecimalPointPresent = false;
+    $(`#screen`).empty();
 }
-
-// let multipleDigits = [];
-
-// function multipleDigitTest(el) {
-//     let num = multipleDigits.push(el);
-//     console.log(`multipleDigits: ` + multipleDigits.join(''));
-//     $(`#multipleDigits`).empty().append(Number(multipleDigits.join('')));
-//     if (firstDecimalPointPresent == false) {
-//         console.log(`multipleDigits: ` + multipleDigits);
-//         $(`#multipleDigits`).empty().append(Number(multipleDigits.join('')));
-//     }
-//     else {
-//         console.log(`can't do that`)
-//     }
-// }
 
 function stageNumbers(el) {
     if (firstNumberPicked == false) {
@@ -168,7 +159,6 @@ function stageOperator(el) {
         // if the first number has been selected this transforms it from an array to a number and saves it as firstNumber and sets the operator
         firstNumber = Number(firstNumberArray.join(''));
         operator = el;
-        let buttonChangeData = `'#` + operator + `'`;
         operatorPicked = true;
         firstNumberPicked = true;
         console.log(`operator: ` + operator);
