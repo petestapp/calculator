@@ -16,14 +16,6 @@ let answer;
 let firstDecimalPointPresent = false;
 let secondDecimalPointPresent = false;
 
-function clickButton() {
-    console.log(`firstNumber:` + firstNumber);
-    console.log(`firstNumberPicked: ` + firstNumberPicked);
-    console.log(`operator: ` + operator);
-    console.log(`operatorPicked: ` + operatorPicked);
-    console.log(`secondNumber: ` + secondNumber);
-}
-
 function clearData() {
     firstNumberArray = [];
     firstNumber = undefined;
@@ -155,6 +147,12 @@ function stageOperator(el) {
         // you cannot set the operator before selecting first number
         console.log(`pick a number first`);
     }
+    else if (operatorPicked == true) {
+        $(`#${operator}`).removeClass('btn-primary').addClass('btn-warning');
+        operator = el;
+        console.log(`operator picked again:`, operator);
+        $(`#${operator}`).removeClass('btn-warning').addClass('btn-primary');
+    }
     else {
         // if the first number has been selected this transforms it from an array to a number and saves it as firstNumber and sets the operator
         firstNumber = Number(firstNumberArray.join(''));
@@ -162,7 +160,7 @@ function stageOperator(el) {
         operatorPicked = true;
         firstNumberPicked = true;
         console.log(`operator: ` + operator);
-        $(`#${operator}`).removeClass('btn-dark').addClass('btn-danger');
+        $(`#${operator}`).removeClass('btn-warning').addClass('btn-primary');
     }
 }
 
@@ -172,7 +170,7 @@ function completeOperation() {
     console.log(`secondNumberPicked:`, secondNumberPicked);
     // once the equals sign is pressed this saves the secondNumber as a number rather than an array and the below lines complete the operation depending on the operator
     console.log(`secondNumber: `, secondNumber);
-    $(`#${operator}`).removeClass('btn-danger').addClass('btn-dark');
+    $(`#${operator}`).removeClass('btn-danger').addClass('btn-warning');
     if (firstNumberPicked == 0 || operator == null || secondNumber == null) {
         console.log('error: add more info');
     }
