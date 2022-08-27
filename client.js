@@ -107,16 +107,23 @@ function stageNumbers(el) {
 
 function positiveNegative() {
     if (firstNumberPicked == true) {
-        // if the firstNumber has been picked, go to the secondNumberArray
-        if (secondNumberArray[0] == `-`) {
-            secondNumberArray.shift();
-            // if the first element is a negative sign, remove the first element to make it positive
-            $(`#screen`).empty().append(secondNumberArray);
+        if (secondNumberPicked == true) {
+            // if both other numbers are picked, change answer from positive to negative
+            answer = -answer;
+            $(`#screen`).empty().append(answer);
         }
         else {
-            secondNumberArray.unshift(`-`);
-            // if positive, add a negative sign to the front of the array
-            $(`#screen`).empty().append(secondNumberArray);
+            // if the firstNumber has been picked, but not the secondNumber, go to the secondNumberArray
+            if (secondNumberArray[0] == `-`) {
+                secondNumberArray.shift();
+                // if the first element is a negative sign, remove the first element to make it positive
+                $(`#screen`).empty().append(secondNumberArray);
+            }
+            else {
+                secondNumberArray.unshift(`-`);
+                // if positive, add a negative sign to the front of the array
+                $(`#screen`).empty().append(secondNumberArray);
+            }
         }
     }
     else {
