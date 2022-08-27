@@ -107,16 +107,20 @@ function stageNumbers(el) {
 
 function positiveNegative() {
     if (firstNumberPicked == true) {
+        // if the firstNumber has been picked, go to the secondNumberArray
         if (secondNumberArray[0] == `-`) {
             secondNumberArray.shift();
+            // if the first element is a negative sign, remove the first element to make it positive
             $(`#screen`).empty().append(secondNumberArray);
         }
         else {
             secondNumberArray.unshift(`-`);
+            // if positive, add a negative sign to the front of the array
             $(`#screen`).empty().append(secondNumberArray);
         }
     }
     else {
+        // same logic as above on firstNumberArray
         if (firstNumberArray[0] == `-`) {
             firstNumberArray.shift();
             $(`#screen`).empty().append(firstNumberArray);
@@ -125,6 +129,26 @@ function positiveNegative() {
             firstNumberArray.unshift(`-`);
             $(`#screen`).empty().append(firstNumberArray);
         }
+    }
+}
+
+function makePercentage() {
+    if (firstNumberPicked == true) {
+        if (secondNumberPicked == true) {
+            // change answer
+            answer = answer / 100;
+            $(`#screen`).empty().append(answer);
+        }
+        else {
+            // change secondNumber
+            secondNumberArray = Array.from(String(Number(secondNumberArray.join('')) / 100));
+            $(`#screen`).empty().append(secondNumberArray);
+        }
+    }
+    else {
+        // change firstNumber
+        firstNumberArray = Array.from(String(Number(firstNumberArray.join('')) / 100));
+        $(`#screen`).empty().append(firstNumberArray);
     }
 }
 
@@ -147,6 +171,8 @@ function stageOperator(el) {
 
 function completeOperation() {
     secondNumber = Number(secondNumberArray.join(''));
+    secondNumberPicked = true;
+    console.log(`secondNumberPicked:`, secondNumberPicked);
     // once the equals sign is pressed this saves the secondNumber as a number rather than an array and the below lines complete the operation depending on the operator
     console.log(`secondNumber: `, secondNumber);
     $(`#${operator}`).removeClass('btn-danger').addClass('btn-dark');
