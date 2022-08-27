@@ -77,7 +77,6 @@ function stageNumbers(el) {
             }
         }
         $(`#screen`).empty().append(firstNumberArray);
-        console.log(firstNumberArray);
     }
     else {
         // this is the same logic as the first number in the function
@@ -103,7 +102,29 @@ function stageNumbers(el) {
             }
         }
         $(`#screen`).empty().append(secondNumberArray);
-        console.log(secondNumberArray);
+    }
+}
+
+function positiveNegative() {
+    if (firstNumberPicked == true) {
+        if (secondNumberArray[0] == `-`) {
+            secondNumberArray.shift();
+            $(`#screen`).empty().append(secondNumberArray);
+        }
+        else {
+            secondNumberArray.unshift(`-`);
+            $(`#screen`).empty().append(secondNumberArray);
+        }
+    }
+    else {
+        if (firstNumberArray[0] == `-`) {
+            firstNumberArray.shift();
+            $(`#screen`).empty().append(firstNumberArray);
+        }
+        else {
+            firstNumberArray.unshift(`-`);
+            $(`#screen`).empty().append(firstNumberArray);
+        }
     }
 }
 
