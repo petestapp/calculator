@@ -17,7 +17,15 @@ let firstDecimalPointPresent = false;
 let secondDecimalPointPresent = false;
 
 function clearData() {
-    firstNumberArray = [];
+    if (answer != undefined) {
+        firstNumberArray = Array.from(String(answer), Number);
+        console.log(`firstNumberArray from answer:`, firstNumberArray);
+        $(`#screen`).empty().append(firstNumberArray);
+    }
+    else {
+        firstNumberArray = [];
+        $(`#screen`).empty();
+    }
     firstNumber = undefined;
     firstNumberPicked = false;
     secondNumberArray = [];
@@ -27,7 +35,6 @@ function clearData() {
     answer = undefined;
     firstDecimalPointPresent = false;
     secondDecimalPointPresent = false;
-    $(`#screen`).empty();
 }
 
 function stageNumbers(el) {
@@ -167,9 +174,7 @@ function stageOperator(el) {
 function completeOperation() {
     secondNumber = Number(secondNumberArray.join(''));
     secondNumberPicked = true;
-    console.log(`secondNumberPicked:`, secondNumberPicked);
     // once the equals sign is pressed this saves the secondNumber as a number rather than an array and the below lines complete the operation depending on the operator
-    console.log(`secondNumber: `, secondNumber);
     $(`#${operator}`).removeClass('btn-danger').addClass('btn-warning');
     if (firstNumberPicked == 0 || operator == null || secondNumber == null) {
         console.log('error: add more info');
@@ -194,4 +199,5 @@ function completeOperation() {
         console.log(`answer: ` + answer);
         $(`#screen`).empty().append(answer);
     }
+    clearData();
 }
